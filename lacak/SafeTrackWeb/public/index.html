@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="id"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12263a"><title>SafeTrack — lacak dengan izin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+<section id="onboard" class="onboard hidden">
+  <form id="regForm" class="reg">
+    <div class="logo">◎</div><h1>SafeTrack</h1>
+    <p>Lihat lokasi orang terdekat, hanya jika mereka mengizinkan. Izin cukup diberikan sekali dan bisa dicabut kapan saja.</p>
+    <label>Nama Anda<input id="rName" required maxlength="40" placeholder="Contoh: Rani"></label>
+    <label>Nomor HP Anda<input id="rPhone" required inputmode="tel" placeholder="0812xxxxxxx"></label>
+    <button class="btn primary">Mulai</button><p id="regErr" class="err"></p>
+  </form>
+</section>
+<div id="app" class="app hidden">
+  <aside class="panel">
+    <header><div class="logo sm">◎</div><div><h1>SafeTrack</h1><small id="meLabel"></small></div></header>
+    <div id="sharing" class="sharing hidden"></div>
+    <form id="reqForm" class="reqform">
+      <label for="reqPhone">Lacak nomor</label>
+      <div class="row"><input id="reqPhone" inputmode="tel" placeholder="Nomor HP yang ingin dilacak" required><button class="btn primary">Minta izin</button></div>
+      <p id="reqMsg" class="hint"></p>
+    </form>
+    <nav class="tabs"><button data-tab="out" class="on">Dilacak <b id="cOut"></b></button><button data-tab="in">Izin masuk <b id="cIn"></b></button></nav>
+    <div id="list" class="list"></div>
+  </aside>
+  <main class="mapwrap"><div id="map"></div><div id="mapInfo" class="mapinfo hidden"></div></main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script></body></html>
